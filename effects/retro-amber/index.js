@@ -45,7 +45,7 @@ const retroEffect = new GlslEffect('retro_scaled', {
 			[ 'flickering', new THREE.Uniform(0.05)], 
 			[ 'ambientLight', new THREE.Uniform(0.1)],
 			[ 'scale', new THREE.Uniform(scale)], 
-			[ 'scanLineDensity', new THREE.Uniform(0.3)], 
+			[ 'scanLineDensity', new THREE.Uniform(0.2)], 
 			// [ 'pixelization', new THREE.Uniform(true)], 
 			[ 'rbgSplit', new THREE.Uniform(0.05)], 
 		]),
@@ -62,13 +62,13 @@ new THREE.TextureLoader().load(resolve(__dirname, '../../images/allNoise512.png'
 
 // ---------------------- BLOOM EFFECT ----------------------
 const bloomEffect = new POSTPROCESSING.BloomEffect({
-	kernelSize: 5,
-	luminanceThreshold: 0.05,
+	kernelSize: 2,
+	luminanceThreshold: 0,
 	luminanceSmoothing: 0,
-	lendFunction: POSTPROCESSING.BlendFunction.ADD,	
+	BlendFunction: POSTPROCESSING.BlendFunction.ADD,	
 });
-bloomEffect.luminancePass.enabled = true;
-bloomEffect.blendMode.opacity.value = 0.6;
+// bloomEffect.luminancePass.enabled = true;
+bloomEffect.blendMode.opacity.value = 1.5;
 
 
 // ---------------------- FRAME EFFECT ----------------------
